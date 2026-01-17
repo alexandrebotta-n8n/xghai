@@ -8,6 +8,9 @@
     <title>XGH-AI | A Singularidade da Gambiarra</title>
     
     <style>
+        * {
+            box-sizing: border-box; /* Garante que padding não estoure a largura */
+        }
         :root {
             --neon-green: #39ff14;
             --neon-purple: #bc13fe;
@@ -175,6 +178,10 @@
             border: 1px solid #222;
             padding: 15px;
             background: #000;
+            overflow-y: auto; /* Barra de rolagem vertical */
+            overflow-x: hidden; /* Esconde rolagem horizontal */
+            width: 100%; /* Força a respeitar o container pai */
+            word-wrap: break-word; /* Quebra palavras longas se necessário */
         }
 
         footer {
@@ -552,5 +559,6 @@
 </body>
 
 </html>
+
 
 
