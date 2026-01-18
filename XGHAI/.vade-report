@@ -1,0 +1,47 @@
+Implemented Vercel Speed Insights integration following the official documentation guidelines.
+
+## Summary
+
+Updated the XGH-AI project to use Vercel Speed Insights for performance monitoring, replacing the deprecated Vercel Insights script with the new Speed Insights implementation.
+
+## Files Modified
+
+- **XGHAI/index.html** - Updated Vercel Insights initialization and script references
+
+## Changes Made
+
+### 1. Updated Speed Insights Initialization Script
+- Changed from `window.va` to `window.si` (Speed Insights object)
+- Changed from `window.va.q` to `window.siq` (Speed Insights queue array)
+- This follows the official Vercel Speed Insights documentation for HTML projects
+
+### 2. Updated Script Source
+- Changed from `/_vercel/insights/script.js` to `/_vercel/speed-insights/script.js`
+- This ensures the correct tracking script is loaded when deployed to Vercel
+
+## Implementation Details
+
+Following the Vercel Speed Insights documentation for HTML projects, the integration includes:
+- Proper initialization of the `window.si` function and `window.siq` queue before the script tag
+- The defer attribute on the script tag for optimal performance
+- The script is positioned in the head section where it won't block page rendering
+
+## How This Works
+
+Once deployed to Vercel:
+1. The initialization script sets up the `window.si` global function
+2. The speed tracking script loads and automatically instruments Core Web Vitals
+3. Performance metrics are collected and sent to Vercel's dashboard
+4. Data appears in the Speed Insights tab of the Vercel dashboard
+
+## Next Steps for User
+
+1. Enable Speed Insights in the Vercel dashboard (Project Settings → Speed Insights)
+2. Deploy the changes to Vercel (git push)
+3. Allow a few days for data collection from users
+4. View performance metrics in the Speed Insights dashboard tab
+
+## References
+
+- Vercel Speed Insights Documentation: https://vercel.com/docs/speed-insights
+- This implementation follows the HTML framework section of the getting started guide
