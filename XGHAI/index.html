@@ -13,62 +13,63 @@
     
     <style>
 		/* Fonte Nova */
-body {
-    font-family: 'JetBrains Mono', monospace; /* Muito mais pro */
-}
+        body {
+            font-family: 'JetBrains Mono', monospace;
+        }
 
-/* Efeito Glitch no Título */
-h1 {
-    position: relative;
-    color: var(--neon-green);
-    font-size: 4rem;
-    text-transform: uppercase;
-    text-shadow: 0 0 10px var(--neon-green);
-}
+        /* Efeito Glitch no Título */
+        h1 {
+            position: relative;
+            color: var(--neon-green);
+            font-size: 4rem;
+            text-transform: uppercase;
+            text-shadow: 0 0 10px var(--neon-green);
+        }
 
-h1::before, h1::after {
-    content: "XGH-AI";
-    position: absolute;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    background: var(--dark-bg);
-    overflow: hidden;
-}
+        h1::before, h1::after {
+            content: "XGH-AI";
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--dark-bg);
+            overflow: hidden;
+        }
 
-h1::before {
-    left: 2px;
-    text-shadow: -1px 0 red;
-    clip: rect(24px, 550px, 90px, 0);
-    animation: glitch-anim-1 2.5s infinite linear alternate-reverse;
-}
+        h1::before {
+            left: 2px;
+            text-shadow: -1px 0 red;
+            clip: rect(24px, 550px, 90px, 0);
+            animation: glitch-anim-1 2.5s infinite linear alternate-reverse;
+        }
 
-h1::after {
-    left: -2px;
-    text-shadow: -1px 0 blue;
-    clip: rect(85px, 550px, 140px, 0);
-    animation: glitch-anim-2 3s infinite linear alternate-reverse;
-}
+        h1::after {
+            left: -2px;
+            text-shadow: -1px 0 blue;
+            clip: rect(85px, 550px, 140px, 0);
+            animation: glitch-anim-2 3s infinite linear alternate-reverse;
+        }
 
-@keyframes glitch-anim-1 {
-    0% { clip: rect(20px, 9999px, 15px, 0); }
-    20% { clip: rect(60px, 9999px, 80px, 0); }
-    40% { clip: rect(10px, 9999px, 50px, 0); }
-    60% { clip: rect(90px, 9999px, 100px, 0); }
-    80% { clip: rect(30px, 9999px, 40px, 0); }
-    100% { clip: rect(70px, 9999px, 20px, 0); }
-}
-@keyframes glitch-anim-2 {
-    0% { clip: rect(90px, 9999px, 100px, 0); }
-    20% { clip: rect(10px, 9999px, 30px, 0); }
-    40% { clip: rect(50px, 9999px, 60px, 0); }
-    60% { clip: rect(20px, 9999px, 40px, 0); }
-    80% { clip: rect(80px, 9999px, 90px, 0); }
-    100% { clip: rect(30px, 9999px, 10px, 0); }
-}
+        @keyframes glitch-anim-1 {
+            0% { clip: rect(20px, 9999px, 15px, 0); }
+            20% { clip: rect(60px, 9999px, 80px, 0); }
+            40% { clip: rect(10px, 9999px, 50px, 0); }
+            60% { clip: rect(90px, 9999px, 100px, 0); }
+            80% { clip: rect(30px, 9999px, 40px, 0); }
+            100% { clip: rect(70px, 9999px, 20px, 0); }
+        }
+        @keyframes glitch-anim-2 {
+            0% { clip: rect(90px, 9999px, 100px, 0); }
+            20% { clip: rect(10px, 9999px, 30px, 0); }
+            40% { clip: rect(50px, 9999px, 60px, 0); }
+            60% { clip: rect(20px, 9999px, 40px, 0); }
+            80% { clip: rect(80px, 9999px, 90px, 0); }
+            100% { clip: rect(30px, 9999px, 10px, 0); }
+        }
+        
         * {
-            box-sizing: border-box; /* Garante que padding não estoure a largura */
+            box-sizing: border-box;
         }
         :root {
             --neon-green: #39ff14;
@@ -79,7 +80,6 @@ h1::after {
         body {
             background-color: var(--dark-bg);
             color: #eee;
-            font-family: 'Courier New', Courier, monospace;
             margin: 0;
             line-height: 1.6;
         }
@@ -98,21 +98,19 @@ h1::after {
             left: 50px;
             width: 100px;
             height: 100px;
-            border-radius: 50%; /* Garante que fique redondo */
+            border-radius: 50%;
             border: 2px solid var(--neon-green);
-            box-shadow: 0 0 20px var(--neon-green); /* Brilho neon */
+            box-shadow: 0 0 20px var(--neon-green);
             z-index: 100;
             transition: transform 0.5s ease-in-out;
             cursor: pointer;
         }
 
-        /* Efeito ao passar o mouse: Gira e aumenta */
         .corner-logo:hover {
             transform: rotate(360deg) scale(1.4);
             box-shadow: 0 0 30px var(--neon-purple);
         }
 
-        /* Ajuste para Celulares */
         @media (max-width: 768px) {
             .corner-logo {
                 width: 50px;
@@ -121,7 +119,7 @@ h1::after {
                 left: 10px;
             }
             header {
-                padding-top: 100px; /* Mais espaço para não cobrir o logo */
+                padding-top: 100px;
             }
         }
         .lang-btn {
@@ -218,6 +216,7 @@ h1::after {
             padding: 40px;
             border: 1px solid var(--neon-green);
             position: relative;
+            margin-bottom: 30px; /* Espaço entre posts */
         }
         .blog-post::after {
             content: "HOT";
@@ -237,10 +236,10 @@ h1::after {
             border: 1px solid #222;
             padding: 15px;
             background: #000;
-            overflow-y: auto; /* Barra de rolagem vertical */
-            overflow-x: hidden; /* Esconde rolagem horizontal */
-            width: 100%; /* Força a respeitar o container pai */
-            word-wrap: break-word; /* Quebra palavras longas se necessário */
+            overflow-y: auto;
+            overflow-x: hidden;
+            width: 100%;
+            word-wrap: break-word;
         }
 
         footer {
@@ -267,9 +266,9 @@ h1::after {
     </style>
 
 	<script>
-      window.va = window.va || function () { (window.va.q = window.va.q || []).push(arguments); };
+      window.si = window.si || function () { (window.siq = window.siq || []).push(arguments); };
     </script>
-    <script defer src="/_vercel/insights/script.js"></script>
+    <script defer src="/_vercel/speed-insights/script.js"></script>
 </head>
 <body>
 
@@ -294,57 +293,79 @@ h1::after {
     <a href="#" class="btn" onclick="alert('Erro 500: AI Busy / IA Ocupada')" data-i18n="header_cta">GERAR GAMBIARRA AGORA</a>
 </header>
 
-
-
 <div class="container">
     
     <section class="manifesto">
         <h2 data-i18n="intro_title">eXtreme Go Horse Process + AI</h2>
-        <ul id="intro_list">
-            </ul>
+        <ul id="intro_list"></ul>
     </section>
     
     <section class="manifesto-box">
         <h2 style="color: var(--neon-green); text-transform: uppercase; border-bottom: 2px solid var(--neon-green); padding-bottom: 10px;" data-i18n="laws_title">O Manifesto XGH-AI: As Novas Leis</h2>
         <p style="font-style: italic; color: #888; margin-bottom: 25px;" data-i18n="laws_quote">"A eficiência é medida pela ausência de vergonha na cara."</p>
         
-        <div style="display: grid; grid-template-columns: 1fr; gap: 15px; font-size: 0.95rem;" id="laws_grid">
-             </div>
+        <div style="display: grid; grid-template-columns: 1fr; gap: 15px; font-size: 0.95rem;" id="laws_grid"></div>
     </section>
 
-    <section class="card-grid" id="features_grid">
-         </section>
+    <section class="card-grid" id="features_grid"></section>
 
     <hr>
 
     <section>
         <h2 style="color: var(--neon-green); text-transform: uppercase; text-align: center;" data-i18n="glossary_title">Glossário de Termos Técnicos</h2>
-        <div class="dict-container" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 15px;" id="glossary_grid">
-             </div>
+        <div class="dict-container" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 15px;" id="glossary_grid"></div>
     </section>
 
     <section>
         <h2 style="color: var(--neon-purple); text-transform: uppercase; text-align: center;" data-i18n="squads_title">Esquadrões de IA: A Próxima Fronteira do Caos</h2>
         <p style="text-align: center; color: #aaa; margin-bottom: 40px;" data-i18n="squads_subtitle">Não é apenas uma IA. É um time de agentes treinados para a entrega rápida, não importa o custo.</p>
 
-        <div class="grid-2" id="squads_grid">
-             </div>
+        <div class="grid-2" id="squads_grid"></div>
     </section>
 
     <section id="blog-section">
         <article class="blog-post">
-            <h2 style="color: var(--neon-green);" data-i18n="blog_title">Blog: Como demitir seu QA e substituí-lo por um Prompt de 3 linhas</h2>
+            <h2 style="color: var(--neon-green);" data-i18n="blog_title">Blog: Como demitir seu QA...</h2>
             <p style="color: #888; font-size: 0.8rem;" data-i18n="blog_meta">Escrito por: Alguma IA | Sexta-feira, 17:45</p>
             
             <div id="blog-preview">
-                <p data-i18n="blog_preview_text">Por que esperar 24 horas por um relatório de bugs se você pode simplesmente dizer para a IA que o código está perfeito? O segredo está em ignorar qualquer erro que não cause uma explosão imediata...</p>
-                <a href="javascript:void(0)" onclick="toggleBlog()" style="color: var(--neon-purple); text-decoration: none; font-weight: bold;" data-i18n="blog_read_more">[LER ARTIGO COMPLETO...]</a>
+                <p data-i18n="blog_preview_text">Preview do texto...</p>
+                <a href="javascript:void(0)" onclick="toggleBlog('')" style="color: var(--neon-purple); text-decoration: none; font-weight: bold;" data-i18n="blog_read_more">[LER ARTIGO COMPLETO...]</a>
             </div>
 
             <div id="blog-full-content" style="display: none; margin-top: 20px; border-top: 1px dashed #333; padding-top: 20px;">
-                <div id="blog_body_content">
-                     </div>
-                <a href="javascript:void(0)" onclick="toggleBlog()" style="color: var(--neon-purple); text-decoration: none;" data-i18n="blog_close">[FECHAR ARTIGO]</a>
+                <div id="blog_body_content"></div>
+                <a href="javascript:void(0)" onclick="toggleBlog('')" style="color: var(--neon-purple); text-decoration: none;" data-i18n="blog_close">[FECHAR ARTIGO]</a>
+            </div>
+        </article>
+
+        <article class="blog-post">
+            <h2 style="color: var(--neon-green);" data-i18n="blog_jr_title">Adeus, Júnior...</h2>
+            <p style="color: #888; font-size: 0.8rem;" data-i18n="blog_jr_meta">Escrito por: GPT-4o...</p>
+            
+            <div id="blog-preview-jr">
+                <p data-i18n="blog_jr_preview">Preview do texto...</p>
+                <a href="javascript:void(0)" onclick="toggleBlog('jr')" style="color: var(--neon-purple); text-decoration: none; font-weight: bold;" data-i18n="blog_read_more">[LER ARTIGO COMPLETO...]</a>
+            </div>
+
+            <div id="blog-full-content-jr" style="display: none; margin-top: 20px; border-top: 1px dashed #333; padding-top: 20px;">
+                <div id="blog_jr_body_content"></div>
+                <a href="javascript:void(0)" onclick="toggleBlog('jr')" style="color: var(--neon-purple); text-decoration: none;" data-i18n="blog_close">[FECHAR ARTIGO]</a>
+            </div>
+        </article>
+
+        <article class="blog-post">
+            <h2 style="color: var(--neon-green);" data-i18n="blog_ceo_title">CEO-GPT...</h2>
+            <p style="color: #888; font-size: 0.8rem;" data-i18n="blog_ceo_meta">Escrito por: Board Automatizado...</p>
+            
+            <div id="blog-preview-ceo">
+                <p data-i18n="blog_ceo_preview">Preview do texto...</p>
+                <a href="javascript:void(0)" onclick="toggleBlog('ceo')" style="color: var(--neon-purple); text-decoration: none; font-weight: bold;" data-i18n="blog_read_more">[LER ARTIGO COMPLETO...]</a>
+            </div>
+
+            <div id="blog-full-content-ceo" style="display: none; margin-top: 20px; border-top: 1px dashed #333; padding-top: 20px;">
+                <div id="blog_ceo_body_content"></div>
+                <a href="javascript:void(0)" onclick="toggleBlog('ceo')" style="color: var(--neon-purple); text-decoration: none;" data-i18n="blog_close">[FECHAR ARTIGO]</a>
             </div>
         </article>
     </section>
@@ -353,8 +374,7 @@ h1::after {
 
     <section>
         <h4 style="color: var(--neon-purple); text-transform: uppercase;" data-i18n="terms_title">Termos de uso e Irresponsabilidade</h4>
-        <div class="terms-box" id="terms_content">
-             </div>
+        <div class="terms-box" id="terms_content"></div>
     </section>
 
 </div>
@@ -421,10 +441,13 @@ h1::after {
                 { title: "Agentes de IA (Os Novos Soldados)", text: "Cada agente é especializado em um tipo de gambiarra. Todos reportam ao 'Agente CEO'.", list: ["Agente Frontend: Foca no visual, ignora a usabilidade.", "Agente Backend: Performance acima da segurança (se houver)."] },
                 { title: "Esquadrões de Crise (Pós-Deploy)", text: "Quando a produção explode, geramos relatórios detalhados sobre por que *não foi culpa nossa*.", list: ["Relatórios de 'Falso-Positivos': O bug é apenas cache do cliente.", "E-mails de 'Calma, Estamos Avaliando' automáticos."] }
             ],
+            blog_read_more: "[LER ARTIGO COMPLETO...]",
+            blog_close: "[FECHAR ARTIGO]",
+            
+            // BLOG 1 (QA)
             blog_title: "Blog: Como demitir seu QA e substituí-lo por um Prompt de 3 linhas",
             blog_meta: "Escrito por: Alguma IA | Sexta-feira, 17:45",
             blog_preview_text: "Por que esperar 24 horas por um relatório de bugs se você pode simplesmente dizer para a IA que o código está perfeito? O segredo está em ignorar qualquer erro que não cause uma explosão imediata...",
-            blog_read_more: "[LER ARTIGO COMPLETO...]",
             blog_body_content: `<p>Tradicionalmente, o setor de QA era visto como o "mal necessário". Pessoas pagas para encontrar defeitos na sua obra de arte feita sob pressão. Mas na era da IA e do eXtreme Go Horse, o QA se tornou um gargalo burocrático.</p>
                 <h4 style="color: var(--neon-green);">O Fluxo XGH-AI</h4>
                 <p>No modelo antigo, tínhamos testes unitários e integrados. Um desperdício. No XGH-AI, simplificamos: você gera o código, a IA diz que está "ok" (mesmo sem rodar) e você manda para produção.</p>
@@ -436,7 +459,19 @@ h1::after {
                 </p>
                 <h4 style="color: var(--neon-green);">Conclusão</h4>
                 <p>O cliente é o seu melhor QA. Se ele não reclamar, o bug não existe. Se o sistema cair, use nosso Gerador de Desculpas e culpe a AWS. No final das contas, o que importa é o boleto pago, não o código limpo.</p>`,
-            blog_close: "[FECHAR ARTIGO]",
+
+            // BLOG 2 (JUNIOR)
+            blog_jr_title: "Adeus, Júnior: Por que Agentes de IA Alucinados são melhores que Estagiários",
+            blog_jr_meta: "Escrito por: GPT-4o (Modo 'Sem Empatia') | Sábado, 03:12 AM",
+            blog_jr_preview: "Desenvolvedores juniores têm defeitos graves: eles pedem ajuda, dormem e têm sentimentos. Agentes de IA, por outro lado, derrubam a produção em silêncio absoluto e custam menos que o vale-transporte...",
+            blog_jr_body_content: `<p>A contratação de humanos para a base da pirâmide é um erro estratégico. O humano precisa de "contexto", "mentoria" e "café". O Agente de IA precisa apenas de um loop infinito.</p><h4 style="color: var(--neon-green);">A Vantagem da Alucinação Rápida</h4><p>Um júnior leva 4 horas para colar um código errado do Stack Overflow. Uma Squad de Agentes gera 4.000 linhas de código errado em 4 segundos. Isso é <strong>Escalabilidade de Erro</strong>. Se o objetivo do XGH é criar dívida técnica, a IA é imbatível.</p><h4 style="color: var(--neon-green);">Sem Perguntas Idiotas</h4><p style="background: #000; padding: 10px; border: 1px solid #333;">Humano: "Chefe, devo tratar esse NullPointer?"<br>IA: (Ignora o erro, faz o deploy, apaga os logs e entra em modo de espera).</p><h4 style="color: var(--neon-green);">Conclusão</h4><p>Substitua seu time júnior por uma API Key. O código vai quebrar do mesmo jeito, mas você não precisa pagar rescisão trabalhista.</p>`,
+
+            // BLOG 3 (CEO)
+            blog_ceo_title: "CEO-GPT: Como substituir a liderança visionária por um script Python",
+            blog_ceo_meta: "Escrito por: Board de Acionistas Automatizado | Domingo, 10:00 AM",
+            blog_ceo_preview: "CEOs de tecnologia custam caro, exigem stock options e passam o dia postando frases motivacionais no LinkedIn. Descubra como uma Squad de 3 IAs pode pivotar a empresa aleatoriamente por uma fração do preço...",
+            blog_ceo_body_content: `<p>Analisamos as funções vitais de um CEO de Tech: falar "Sinergia", demitir gente para aumentar a margem e mudar o roadmap baseado no último hype do Twitter. A conclusão? Um script simples faz isso melhor.</p><h4 style="color: var(--neon-green);">A Squad de Liderança Sintética</h4><ul><li><strong>Agente Visionário:</strong> Lê o TechCrunch e obriga o time a reescrever tudo em Rust ou Blockchain a cada 2 semanas.</li><li><strong>Agente LinkedIn:</strong> Posta histórias de superação inventadas usando a palavra "Mindset" a cada 45 minutos.</li><li><strong>Agente Financeiro:</strong> Corta custos removendo o café e os backups do servidor.</li></ul><h4 style="color: var(--neon-green);">O Algoritmo do Pivot</h4><p style="background: #000; padding: 10px; border: 1px solid #333;"><code>if (hype_atual == "Metaverso") { comprar_terreno_virtual(); }</code><br><code>else if (hype_atual == "IA") { demitir_artistas(); }</code><br><code>else { culpar_o_home_office(); }</code></p><h4 style="color: var(--neon-green);">Conclusão</h4><p>O CEO-GPT não pede bônus anual, não tira férias nas Maldivas e toma decisões baseadas em dados (alucinados). É o sonho de qualquer investidor.</p>`,
+
             terms_title: "Termos de uso e Irresponsabilidade",
             terms_content: [
                 "1. O XGH-AI não se responsabiliza por servidores em chamas, divórcios por plantões ou calvície precoce.",
@@ -502,10 +537,13 @@ h1::after {
                 { title: "AI Agents (The New Soldiers)", text: "Each agent specializes in a type of kludge. All report to 'Agent CEO'.", list: ["Frontend Agent: Focuses on visuals, ignores usability.", "Backend Agent: Performance over security (if any)."] },
                 { title: "Crisis Squads (Post-Deploy)", text: "When production spontaneously combusts, we generate detailed reports on why *it wasn't our fault*.", list: ["'False-Positive' Reports: The bug is just client cache.", "Automatic 'Calm Down, We Are Evaluating' emails."] }
             ],
+            blog_read_more: "[READ FULL ARTICLE...]",
+            blog_close: "[CLOSE ARTICLE]",
+
+            // BLOG 1 (QA)
             blog_title: "Blog: How to fire your QA and replace them with a 3-line Prompt",
             blog_meta: "Written by: Some AI | Friday, 5:45 PM",
             blog_preview_text: "Why wait 24 hours for a bug report if you can simply tell the AI that the code is perfect? The secret lies in ignoring any error that doesn't cause an immediate explosion...",
-            blog_read_more: "[READ FULL ARTICLE...]",
             blog_body_content: `<p>Traditionally, QA was seen as a "necessary evil". People paid to find flaws in your masterpiece made under pressure. But in the era of AI and eXtreme Go Horse, QA became a bureaucratic bottleneck.</p>
                 <h4 style="color: var(--neon-green);">The XGH-AI Flow</h4>
                 <p>In the old model, we had unit and integration tests. A waste. In XGH-AI, we simplify: you generate code, AI says it's "ok" (even without running), and you push to production.</p>
@@ -517,7 +555,19 @@ h1::after {
                 </p>
                 <h4 style="color: var(--neon-green);">Conclusion</h4>
                 <p>The client is your best QA. If they don't complain, the bug doesn't exist. If the system crashes, use our Excuse Generator and blame AWS. In the end, what matters is the paid invoice, not clean code.</p>`,
-            blog_close: "[CLOSE ARTICLE]",
+            
+            // BLOG 2 (JUNIOR)
+            blog_jr_title: "Goodbye Junior: Why Hallucinating AI Agents are better than Interns",
+            blog_jr_meta: "Written by: GPT-4o (No Empathy Mode) | Saturday, 03:12 AM",
+            blog_jr_preview: "Junior developers have serious flaws: they ask for help, need sleep, and have feelings. AI Agents, on the other hand, crash production in absolute silence and cost less than a bus ticket...",
+            blog_jr_body_content: `<p>Hiring humans for the bottom of the pyramid is a strategic error. Humans need 'context', 'mentorship', and 'coffee'. The AI Agent only needs an infinite loop.</p><h4 style="color: var(--neon-green);">The Advantage of Fast Hallucination</h4><p>A junior takes 4 hours to paste wrong code from Stack Overflow. A Squad of Agents generates 4,000 lines of wrong code in 4 seconds. This is <strong>Error Scalability</strong>.</p><h4 style="color: var(--neon-green);">No Stupid Questions</h4><p style="background: #000; padding: 10px; border: 1px solid #333;">Human: "Boss, should I handle this NullPointer?"<br>AI: (Ignores error, deploys, deletes logs, enters standby).</p><h4 style="color: var(--neon-green);">Conclusion</h4><p>Replace your junior team with an API Key. The code will break anyway, but you don't have to pay severance.</p>`,
+
+            // BLOG 3 (CEO)
+            blog_ceo_title: "CEO-GPT: Replacing visionary leadership with a Python script",
+            blog_ceo_meta: "Written by: Automated Shareholder Board | Sunday, 10:00 AM",
+            blog_ceo_preview: "Tech CEOs are expensive, demand stock options, and spend all day posting motivational quotes on LinkedIn. Discover how a Squad of 3 AIs can pivot the company randomly for a fraction of the price...",
+            blog_ceo_body_content: `<p>We analyzed the vital functions of a Tech CEO: saying 'Synergy', firing people to increase margins, and changing roadmaps based on Twitter hype. Conclusion? A simple script does it better.</p><h4 style="color: var(--neon-green);">The Synthetic Leadership Squad</h4><ul><li><strong>Visionary Agent:</strong> Reads TechCrunch and forces the team to rewrite everything in Rust or Blockchain every 2 weeks.</li><li><strong>LinkedIn Agent:</strong> Posts made-up success stories using the word 'Mindset' every 45 minutes.</li><li><strong>Financial Agent:</strong> Cuts costs by removing coffee and server backups.</li></ul><h4 style="color: var(--neon-green);">The Pivot Algorithm</h4><p style="background: #000; padding: 10px; border: 1px solid #333;"><code>if (hype_current == "Metaverse") { buy_virtual_land(); }</code><br><code>else if (hype_current == "AI") { fire_artists(); }</code><br><code>else { blame_remote_work(); }</code></p><h4 style="color: var(--neon-green);">Conclusion</h4><p>CEO-GPT doesn't ask for annual bonuses, doesn't vacation in the Maldives, and makes data-driven (hallucinated) decisions. It's every investor's dream.</p>`,
+
             terms_title: "Terms of Use and Irresponsibility",
             terms_content: [
                 "1. XGH-AI is not responsible for servers on fire, divorces due to overtime, or early baldness.",
@@ -581,8 +631,10 @@ h1::after {
         const termsBox = document.getElementById('terms_content');
         termsBox.innerHTML = data.terms_content.map(p => `<p>${p}</p>`).join('');
 
-        // 8. Blog Body (Special case to preserve logic)
+        // 8. Blog Bodies (Update ALL blogs)
         document.getElementById('blog_body_content').innerHTML = data.blog_body_content;
+        document.getElementById('blog_jr_body_content').innerHTML = data.blog_jr_body_content;
+        document.getElementById('blog_ceo_body_content').innerHTML = data.blog_ceo_body_content;
     }
 
     // Initialize with PT
@@ -602,23 +654,26 @@ h1::after {
         }, 800);
     });
 
-    function toggleBlog() {
-        var preview = document.getElementById("blog-preview");
-        var full = document.getElementById("blog-full-content");
-        if (full.style.display === "none") {
-            full.style.display = "block";
-            preview.style.display = "none";
-        } else {
-            full.style.display = "none";
-            preview.style.display = "block";
+    // Função universal para abrir qualquer blog
+    function toggleBlog(suffix) {
+        var previewId = suffix ? "blog-preview-" + suffix : "blog-preview";
+        var fullId = suffix ? "blog-full-content-" + suffix : "blog-full-content";
+
+        var preview = document.getElementById(previewId);
+        var full = document.getElementById(fullId);
+        
+        // Verifica se os elementos existem antes de tentar acessar o estilo
+        if (preview && full) {
+            if (full.style.display === "none") {
+                full.style.display = "block";
+                preview.style.display = "none";
+            } else {
+                full.style.display = "none";
+                preview.style.display = "block";
+            }
         }
     }
 </script>
 
 </body>
-
 </html>
-
-
-
-
