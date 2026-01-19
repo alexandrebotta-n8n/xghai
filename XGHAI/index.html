@@ -598,9 +598,11 @@
             }
         });
 
-        // 2. Complex Lists (Manifesto Intro)
-        const introList = document.getElementById('intro_list');
-        introList.innerHTML = data.intro_list.map(item => `<li>${item}</li>`).join('');
+        // 2. Manifesto Intro (Agora é Texto Simples)
+        const introText = document.getElementById('intro_text');
+        if (introText) {
+            introText.innerHTML = data.intro_text;
+        }
 
         // 3. Complex Lists (Laws Grid)
         const lawsGrid = document.getElementById('laws_grid');
