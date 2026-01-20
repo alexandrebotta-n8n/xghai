@@ -368,6 +368,22 @@
                 <a href="javascript:void(0)" onclick="toggleBlog('ceo')" style="color: var(--neon-purple); text-decoration: none;" data-i18n="blog_close">[FECHAR ARTIGO]</a>
             </div>
         </article>
+
+        <article class="blog-post" style="margin-top: 30px;">
+            <h2 style="color: var(--neon-green);" data-i18n="blog_hr_title">RH Algorítmico...</h2>
+            <p style="color: #888; font-size: 0.8rem;" data-i18n="blog_hr_meta">Escrito por: Recrutador Bot v9000...</p>
+            
+            <div id="blog-preview-hr">
+                <p data-i18n="blog_hr_preview">Preview do texto...</p>
+                <a href="javascript:void(0)" onclick="toggleBlog('hr')" style="color: var(--neon-purple); text-decoration: none; font-weight: bold;" data-i18n="blog_read_more">[LER ARTIGO COMPLETO...]</a>
+            </div>
+
+            <div id="blog-full-content-hr" style="display: none; margin-top: 20px; border-top: 1px dashed #333; padding-top: 20px;">
+                <div id="blog_hr_body_content"></div>
+                <a href="javascript:void(0)" onclick="toggleBlog('hr')" style="color: var(--neon-purple); text-decoration: none;" data-i18n="blog_close">[FECHAR ARTIGO]</a>
+            </div>
+        </article>
+
     </section>
 
     <hr>
@@ -474,6 +490,22 @@
             blog_ceo_preview: "CEOs de tecnologia custam caro, exigem stock options e passam o dia postando frases motivacionais no LinkedIn. Descubra como uma Squad de 3 IAs pode pivotar a empresa aleatoriamente por uma fração do preço...",
             blog_ceo_body_content: `<p>Analisamos as funções vitais de um CEO de Tech: falar "Sinergia", demitir gente para aumentar a margem e mudar o roadmap baseado no último hype do Twitter. A conclusão? Um script simples faz isso melhor.</p><h4 style="color: var(--neon-green);">A Squad de Liderança Sintética</h4><ul><li><strong>Agente Visionário:</strong> Lê o TechCrunch e obriga o time a reescrever tudo em Rust ou Blockchain a cada 2 semanas.</li><li><strong>Agente LinkedIn:</strong> Posta histórias de superação inventadas usando a palavra "Mindset" a cada 45 minutos.</li><li><strong>Agente Financeiro:</strong> Corta custos removendo o café e os backups do servidor.</li></ul><h4 style="color: var(--neon-green);">O Algoritmo do Pivot</h4><p style="background: #000; padding: 10px; border: 1px solid #333;"><code>if (hype_atual == "Metaverso") { comprar_terreno_virtual(); }</code><br><code>else if (hype_atual == "IA") { demitir_artistas(); }</code><br><code>else { culpar_o_home_office(); }</code></p><h4 style="color: var(--neon-green);">Conclusão</h4><p>O CEO-GPT não pede bônus anual, não tira férias nas Maldivas e toma decisões baseadas em dados (alucinados). É o sonho de qualquer investidor.</p>`,
 
+            // BLOG 4 (RH)
+            blog_hr_title: "O Fim do 'Fit Cultural': Contratando Devs via Sorteio Randômico",
+            blog_hr_meta: "Escrito por: Recrutador Bot v9000 (Plugin de Astrologia Ativado) | Segunda, 09:01",
+            blog_hr_preview: "Para que entrevistar pessoas se podemos analisar o repositório GitHub e prever o desempenho baseado na fase da lua? Descubra como o RH-GPT eliminou as dinâmicas de grupo...",
+            blog_hr_body_content: `<p>O processo seletivo tradicional é falho porque depende de humanos julgando humanos. O ser humano tem preconceitos; a máquina tem <strong>Seeds Randômicas</strong>. E no XGH-AI, a aleatoriedade é a forma mais pura de justiça.</p>
+                <h4 style="color: var(--neon-green);">A Metodologia "CV Lottery"</h4>
+                <p>Nossa IA não lê currículos. Ela converte o PDF do candidato em hash MD5 e, se o número terminar em 7, ele é contratado. Isso garante uma equipe com sorte acima da média.</p>
+                <h4 style="color: var(--neon-green);">Soft Skills? Bloqueante.</h4>
+                <p style="background: #000; padding: 10px; border: 1px solid #333;">
+                    Detectamos que candidatos com "boa comunicação" e "espírito de equipe" tendem a questionar prazos impossíveis. Nosso filtro remove automaticamente qualquer CV que contenha a palavra "Empatia" ou "Saúde Mental".
+                </p>
+                <h4 style="color: var(--neon-green);">Onboarding Automatizado</h4>
+                <p>O novo contratado recebe acesso à produção no dia 1. Se sobreviver à primeira semana sem apagar o banco, recebe o contrato. Se apagar, recebe a demissão via SMS gerado por IA.</p>
+                <h4 style="color: var(--neon-green);">Conclusão</h4>
+                <p>Pessoas são recursos. E como qualquer recurso na nuvem, devem ser provisionadas e encerradas sob demanda, sem conversas difíceis.</p>`,
+
             terms_title: "Termos de uso e Irresponsabilidade",
             terms_content: [
                 "1. O XGH-AI não se responsabiliza por servidores em chamas, divórcios por plantões ou calvície precoce.",
@@ -572,6 +604,23 @@
             blog_ceo_preview: "Tech CEOs are expensive, demand stock options, and spend all day posting motivational quotes on LinkedIn. Discover how a Squad of 3 AIs can pivot the company randomly for a fraction of the price...",
             blog_ceo_body_content: `<p>We analyzed the vital functions of a Tech CEO: saying 'Synergy', firing people to increase margins, and changing roadmaps based on Twitter hype. Conclusion? A simple script does it better.</p><h4 style="color: var(--neon-green);">The Synthetic Leadership Squad</h4><ul><li><strong>Visionary Agent:</strong> Reads TechCrunch and forces the team to rewrite everything in Rust or Blockchain every 2 weeks.</li><li><strong>LinkedIn Agent:</strong> Posts made-up success stories using the word 'Mindset' every 45 minutes.</li><li><strong>Financial Agent:</strong> Cuts costs by removing coffee and server backups.</li></ul><h4 style="color: var(--neon-green);">The Pivot Algorithm</h4><p style="background: #000; padding: 10px; border: 1px solid #333;"><code>if (hype_current == "Metaverse") { buy_virtual_land(); }</code><br><code>else if (hype_current == "AI") { fire_artists(); }</code><br><code>else { blame_remote_work(); }</code></p><h4 style="color: var(--neon-green);">Conclusion</h4><p>CEO-GPT doesn't ask for annual bonuses, doesn't vacation in the Maldives, and makes data-driven (hallucinated) decisions. It's every investor's dream.</p>`,
 
+            // BLOG 4 (HR)
+            blog_hr_title: "The End of 'Cultural Fit': Hiring Devs via Random Lottery",
+            blog_hr_meta: "Written by: Recruiter Bot v9000 (Astrology Plugin Enabled) | Monday, 09:01",
+            blog_hr_preview: "Why interview people if we can scan their GitHub and predict performance based on the moon phase? Discover how HR-GPT eliminated group dynamics...",
+            blog_hr_body_content: `<p>Traditional hiring is flawed because it relies on humans judging humans. Humans have bias; machines have <strong>Random Seeds</strong>. In XGH-AI, randomness is the purest form of justice.</p>
+                <h4 style="color: var(--neon-green);">The "CV Lottery" Methodology</h4>
+                <p>Our AI doesn't read resumes. It converts the candidate's PDF into an MD5 hash, and if the number ends in 7, they are hired. This ensures a team with above-average luck.</p>
+                <h4 style="color: var(--neon-green);">Soft Skills? Blocker.</h4>
+                <p style="background: #000; padding: 10px; border: 1px solid #333;">
+                    We found that candidates with "good communication" and "team spirit" tend to question impossible deadlines. Our filter automatically removes any CV containing the words "Empathy" or "Mental Health".
+                </p>
+                <h4 style="color: var(--neon-green);">Automated Onboarding</h4>
+                <p>New hires get production access on Day 1. If they survive the first week without wiping the database, they get a contract. If they wipe it, they get fired via AI-generated SMS.</p>
+                <h4 style="color: var(--neon-green);">Conclusion</h4>
+                <p>People are resources. And like any cloud resource, they should be provisioned and terminated on demand, without awkward conversations.</p>`,
+
+
             terms_title: "Terms of Use and Irresponsibility",
             terms_content: [
                 "1. XGH-AI is not responsible for servers on fire, divorces due to overtime, or early baldness.",
@@ -641,6 +690,7 @@
         document.getElementById('blog_body_content').innerHTML = data.blog_body_content;
         document.getElementById('blog_jr_body_content').innerHTML = data.blog_jr_body_content;
         document.getElementById('blog_ceo_body_content').innerHTML = data.blog_ceo_body_content;
+        document.getElementById('blog_hr_body_content').innerHTML = data.blog_hr_body_content;
     }
 
     // Initialize with PT
