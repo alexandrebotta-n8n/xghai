@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -243,6 +242,45 @@
             word-wrap: break-word;
         }
 
+        /* Botões de Reação */
+        .reaction-container {
+            display: flex;
+            gap: 15px;
+            margin-top: 25px;
+            padding-top: 15px;
+            border-top: 1px dotted #333;
+        }
+
+        .reaction-btn {
+            background: transparent;
+            border: 1px solid #333;
+            color: #666;
+            padding: 8px 15px;
+            cursor: pointer;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: all 0.2s;
+        }
+
+        .reaction-btn:hover {
+            border-color: var(--neon-green);
+            color: var(--neon-green);
+            box-shadow: 0 0 5px var(--neon-green);
+        }
+
+        .reaction-btn.dislike:hover {
+            border-color: red;
+            color: red;
+            box-shadow: 0 0 5px red;
+        }
+
+        .reaction-count {
+            font-weight: bold;
+        }
+
         footer {
             text-align: center;
             padding: 60px;
@@ -336,6 +374,16 @@
 
             <div id="blog-full-content" style="display: none; margin-top: 20px; border-top: 1px dashed #333; padding-top: 20px;">
                 <div id="blog_body_content"></div>
+                
+                <div class="reaction-container">
+                    <button class="reaction-btn" onclick="handleLike('qa')">
+                        👍 <span id="count-qa" class="reaction-count">Loading...</span>
+                    </button>
+                    <button class="reaction-btn dislike" onclick="handleDislike()">
+                        👎
+                    </button>
+                </div>
+
                 <a href="javascript:void(0)" onclick="toggleBlog('')" style="color: var(--neon-purple); text-decoration: none;" data-i18n="blog_close">[FECHAR ARTIGO]</a>
             </div>
         </article>
@@ -351,6 +399,16 @@
 
             <div id="blog-full-content-jr" style="display: none; margin-top: 20px; border-top: 1px dashed #333; padding-top: 20px;">
                 <div id="blog_jr_body_content"></div>
+
+                <div class="reaction-container">
+                    <button class="reaction-btn" onclick="handleLike('jr')">
+                        👍 <span id="count-jr" class="reaction-count">Loading...</span>
+                    </button>
+                    <button class="reaction-btn dislike" onclick="handleDislike()">
+                        👎
+                    </button>
+                </div>
+
                 <a href="javascript:void(0)" onclick="toggleBlog('jr')" style="color: var(--neon-purple); text-decoration: none;" data-i18n="blog_close">[FECHAR ARTIGO]</a>
             </div>
         </article>
@@ -366,6 +424,16 @@
 
             <div id="blog-full-content-ceo" style="display: none; margin-top: 20px; border-top: 1px dashed #333; padding-top: 20px;">
                 <div id="blog_ceo_body_content"></div>
+
+                <div class="reaction-container">
+                    <button class="reaction-btn" onclick="handleLike('ceo')">
+                        👍 <span id="count-ceo" class="reaction-count">Loading...</span>
+                    </button>
+                    <button class="reaction-btn dislike" onclick="handleDislike()">
+                        👎
+                    </button>
+                </div>
+
                 <a href="javascript:void(0)" onclick="toggleBlog('ceo')" style="color: var(--neon-purple); text-decoration: none;" data-i18n="blog_close">[FECHAR ARTIGO]</a>
             </div>
         </article>
@@ -381,6 +449,16 @@
 
             <div id="blog-full-content-hr" style="display: none; margin-top: 20px; border-top: 1px dashed #333; padding-top: 20px;">
                 <div id="blog_hr_body_content"></div>
+
+                <div class="reaction-container">
+                    <button class="reaction-btn" onclick="handleLike('hr')">
+                        👍 <span id="count-hr" class="reaction-count">Loading...</span>
+                    </button>
+                    <button class="reaction-btn dislike" onclick="handleDislike()">
+                        👎
+                    </button>
+                </div>
+
                 <a href="javascript:void(0)" onclick="toggleBlog('hr')" style="color: var(--neon-purple); text-decoration: none;" data-i18n="blog_close">[FECHAR ARTIGO]</a>
             </div>
         </article>
@@ -409,7 +487,6 @@
             header_cta: "GERAR GAMBIARRA AGORA",
 
             intro_title: "eXtreme Go Horse Process + AI",
-            // Substitua a lista antiga por este texto:
             intro_text: "No eXtreme Go Horse Process + AI, a Inteligência Artificial assume o cargo de estagiário de luxo e bode expiatório jurídico: se o commit quebrar, foi alucinação do modelo; se funcionar, o mérito (e o bônus) é inteiramente seu. Abolimos a burocracia da documentação em favor de prompts efêmeros que ninguém vai salvar, e encaramos a refatoração como um sinal de fraqueza — afinal, tentar limpar um código ilegível que já subiu para produção é apenas medo do sucesso. E quando a janela de contexto estourar e a máquina esquecer tudo o que fez há 10 minutos? Celebre. A amnésia digital não é um bug, é a oportunidade divina de ignorar o legado técnico recente e recomeçar o caos do zero.",
 
             laws_title: "O Manifesto XGH-AI: As Novas Leis",
@@ -455,14 +532,12 @@
                 { title: "Engenharia de Contexto (A Arte de Esconder)", text: "Focamos no problema atual e convenientemente esquecemos todos os bugs introduzidos nos 5 prompts anteriores.", list: ["Re-Contextualização Forçada: Resetar o chat quando a IA faz perguntas inteligentes demais.", "Contexto 'Só o Essencial': Passar apenas o código que você quer que ela não quebre."] },
                 { title: "Agentes de IA (Os Novos Soldados)", text: "Cada agente é especializado em um tipo de gambiarra. Todos reportam ao 'Agente CEO'.", list: ["Agente Frontend: Foca no visual, ignora a usabilidade.", "Agente Backend: Performance acima da segurança (se houver)."] },
                 { title: "Esquadrões de Crise (Pós-Deploy)", text: "Quando a produção explode, geramos relatórios detalhados sobre por que *não foi culpa nossa*.", list: ["Relatórios de 'Falso-Positivos': O bug é apenas cache do cliente.", "E-mails de 'Calma, Estamos Avaliando' automáticos."] },
-                // NOVO 1
                 { title: "Squad de Segurança Opcional (SecOps-Less)", text: "A segurança é inimiga da velocidade. Nosso trabalho é garantir que o firewall não atrapalhe o deploy de sexta-feira.", list: ["Permissão 777 Global: Para garantir que ninguém tenha problema de acesso (nem os hackers).", "Senhas em Plain-Text: Para facilitar a recuperação quando a IA esquecer."] },
-                // NOVO 2
                 { title: "Squad de Arqueologia (Legacy Wrapper)", text: "Não reescreva, esconda. Envolvemos sistemas de 1998 em uma camada de IA para parecer moderno aos investidores.", list: ["COBOL-as-a-Service: O mainframe roda, a gente cobra.", "Banco de Dados Excel: A verdadeira escalabilidade corporativa mascarada de Big Data."] }
             ],
             blog_read_more: "[LER ARTIGO COMPLETO...]",
             blog_close: "[FECHAR ARTIGO]",
-            
+
             // BLOG 1 (QA)
             blog_title: "Blog: Como demitir seu QA e substituí-lo por um Prompt de 3 linhas",
             blog_meta: "Escrito por: Alguma IA | Sexta-feira, 17:45",
@@ -523,7 +598,6 @@
             header_cta: "GENERATE WORKAROUND NOW",
 
             intro_title: "eXtreme Go Horse Process + AI",
-            // Substitua a lista antiga por este texto:
             intro_text: "In the eXtreme Go Horse Process + AI, Artificial Intelligence takes on the role of luxury intern and legal scapegoat: if the commit breaks, it was a model hallucination; if it works, the credit (and the bonus) is entirely yours. We abolished bureaucratic documentation in favor of ephemeral prompts that no one will save, and we view refactoring as a sign of weakness—after all, trying to clean up unreadable code that's already in production is just fear of success. And when the context window bursts and the machine forgets everything it did 10 minutes ago? Celebrate. Digital amnesia isn't a bug, it's a divine opportunity to ignore recent technical legacy and restart the chaos from scratch.",
 
             laws_title: "The XGH-AI Manifesto: The New Laws",
@@ -569,9 +643,7 @@
                 { title: "Context Engineering (The Art of Hiding)", text: "We manage context windows by focusing on the current problem and conveniently forgetting all bugs introduced in the previous 5 prompts.", list: ["Forced Re-Contextualization: Resetting chat when AI asks too many smart questions.", "'Essentials Only' Context: Passing only the code you don't want it to break."] },
                 { title: "AI Agents (The New Soldiers)", text: "Each agent specializes in a type of kludge. All report to 'Agent CEO'.", list: ["Frontend Agent: Focuses on visuals, ignores usability.", "Backend Agent: Performance over security (if any)."] },
                 { title: "Crisis Squads (Post-Deploy)", text: "When production spontaneously combusts, we generate detailed reports on why *it wasn't our fault*.", list: ["'False-Positive' Reports: The bug is just client cache.", "Automatic 'Calm Down, We Are Evaluating' emails."] },
-                // NEW 1
                 { title: "Optional Security Squad (SecOps-Less)", text: "Security is the enemy of speed. We ensure the firewall doesn't block Friday's deploy.", list: ["Global 777 Permissions: Ensuring no one has access issues (including hackers).", "Plain-Text Passwords: To facilitate recovery when the AI forgets them."] },
-                // NEW 2
                 { title: "Archeology Squad (Legacy Wrapper)", text: "Don't rewrite, hide it. We wrap 1998 systems in an AI layer to look modern to investors.", list: ["COBOL-as-a-Service: Mainframe runs, we charge.", "Excel Database: True corporate scalability masked as Big Data."] }
             ],
             blog_read_more: "[READ FULL ARTICLE...]",
@@ -620,7 +692,6 @@
                 <p>New hires get production access on Day 1. If they survive the first week without wiping the database, they get a contract. If they wipe it, they get fired via AI-generated SMS.</p>
                 <h4 style="color: var(--neon-green);">Conclusion</h4>
                 <p>People are resources. And like any cloud resource, they should be provisioned and terminated on demand, without awkward conversations.</p>`,
-
 
             terms_title: "Terms of Use and Irresponsibility",
             terms_content: [
@@ -730,6 +801,63 @@
             }
         }
     }
+
+    // --- SISTEMA DE LIKES XGH (Fake Persistence) ---
+    
+    // IDs dos artigos
+    const articleIds = ['qa', 'jr', 'ceo', 'hr'];
+
+    // Inicializa os contadores ao carregar a página
+    function initLikes() {
+        articleIds.forEach(id => {
+            const storageKey = 'xgh_likes_' + id;
+            let currentCount = localStorage.getItem(storageKey);
+
+            // Se não tiver like salvo, gera um número aleatório entre 40 e 500
+            // (Simulação de popularidade fake)
+            if (!currentCount) {
+                currentCount = Math.floor(Math.random() * (500 - 40 + 1)) + 40;
+                localStorage.setItem(storageKey, currentCount);
+            }
+
+            const element = document.getElementById('count-' + id);
+            if(element) element.innerText = currentCount;
+        });
+    }
+
+    // Função de Like (Incrementa e Salva)
+    function handleLike(id) {
+        const storageKey = 'xgh_likes_' + id;
+        let currentCount = parseInt(localStorage.getItem(storageKey) || 0);
+        
+        currentCount++;
+        localStorage.setItem(storageKey, currentCount);
+        
+        // Atualiza na tela com animaçãozinha visual (opcional)
+        const element = document.getElementById('count-' + id);
+        if(element) {
+            element.innerText = currentCount;
+            element.style.color = "#fff";
+            setTimeout(() => { element.style.color = ""; }, 200);
+        }
+    }
+
+    // Função de Deslike (O Pulo do Gato XGH)
+    function handleDislike() {
+        const messages = [
+            "Erro 403: Sua opinião negativa foi vetada pela IA.",
+            "Deslike bloqueado: Isso afetaria a autoestima do algoritmo.",
+            "Botão desativado para manter o ambiente 'Good Vibes Only'.",
+            "Atenção: Seu IP foi anotado para 'futuras retaliações'.",
+            "Redirecionando sua insatisfação para /dev/null..."
+        ];
+        // Escolhe uma frase aleatória
+        const msg = messages[Math.floor(Math.random() * messages.length)];
+        alert("XGH-AI SECURITY: " + msg);
+    }
+
+    // Chama a inicialização quando a página carrega
+    window.addEventListener('load', initLikes);
 </script>
 
 </body>
