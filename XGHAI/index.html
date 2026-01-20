@@ -11,8 +11,48 @@
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2280%22>🐎</text><path d=%22M10 10 L30 10 L30 30 L10 30 Z%22 fill=%22%2339ff14%22 opacity=%220.5%22/><circle cx=%2270%22 cy=%2270%22 r=%2220%22 fill=%22none%22 stroke=%22%23bc13fe%22 stroke-width=%225%22/></svg>">
     <title>XGH-AI | A Singularidade da Gambiarra</title>
     
-    <style>
-		/* Fonte Nova */
+<style>
+
+/* Botões de Reação */
+.reaction-container {
+    display: flex;
+    gap: 15px;
+    margin-top: 25px;
+    padding-top: 15px;
+    border-top: 1px dotted #333;
+}
+
+.reaction-btn {
+    background: transparent;
+    border: 1px solid #333;
+    color: #666;
+    padding: 8px 15px;
+    cursor: pointer;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.9rem;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: all 0.2s;
+}
+
+.reaction-btn:hover {
+    border-color: var(--neon-green);
+    color: var(--neon-green);
+    box-shadow: 0 0 5px var(--neon-green);
+}
+
+.reaction-btn.dislike:hover {
+    border-color: red;
+    color: red;
+    box-shadow: 0 0 5px red;
+}
+
+.reaction-count {
+    font-weight: bold;
+}
+	
+/* Fonte Nova */
 body {
     font-family: 'JetBrains Mono', monospace; /* Muito mais pro */
 }
@@ -341,9 +381,18 @@ h1::after {
                 <a href="javascript:void(0)" onclick="toggleBlog()" style="color: var(--neon-purple); text-decoration: none; font-weight: bold;" data-i18n="blog_read_more">[LER ARTIGO COMPLETO...]</a>
             </div>
 
-            <div id="blog-full-content" style="display: none; margin-top: 20px; border-top: 1px dashed #333; padding-top: 20px;">
+     		 <div id="blog-full-content" style="display: none; margin-top: 20px; border-top: 1px dashed #333; padding-top: 20px;">
                 <div id="blog_body_content">
-                     </div>
+				
+				<div class="reaction-container">
+				    <button class="reaction-btn" onclick="handleLike('qa')">
+				        👍 <span id="count-qa" class="reaction-count">Loading...</span>
+				    </button>
+				    <button class="reaction-btn dislike" onclick="handleDislike()">
+				        👎
+				    </button>
+				</div>
+            </div>
                 <a href="javascript:void(0)" onclick="toggleBlog()" style="color: var(--neon-purple); text-decoration: none;" data-i18n="blog_close">[FECHAR ARTIGO]</a>
             </div>
         </article>
@@ -618,6 +667,7 @@ h1::after {
 </body>
 
 </html>
+
 
 
 
