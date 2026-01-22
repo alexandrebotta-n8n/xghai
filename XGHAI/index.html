@@ -242,7 +242,7 @@
             word-wrap: break-word;
         }
 
-        /* Botões de Reação */
+        /* Botões de Reação (Likes/Dislikes) */
         .reaction-container {
             display: flex;
             gap: 15px;
@@ -463,6 +463,31 @@
             </div>
         </article>
 
+        <article class="blog-post" style="margin-top: 30px;">
+            <h2 style="color: var(--neon-green);" data-i18n="blog_clevel_title">Hackeando o Board...</h2>
+            <p style="color: #888; font-size: 0.8rem;" data-i18n="blog_clevel_meta">Escrito por: Shadow CEO (Modelo treinado em Maquiavel)...</p>
+            
+            <div id="blog-preview-clevel">
+                <p data-i18n="blog_clevel_preview">Preview do texto...</p>
+                <a href="javascript:void(0)" onclick="toggleBlog('clevel')" style="color: var(--neon-purple); text-decoration: none; font-weight: bold;" data-i18n="blog_read_more">[LER ARTIGO COMPLETO...]</a>
+            </div>
+
+            <div id="blog-full-content-clevel" style="display: none; margin-top: 20px; border-top: 1px dashed #333; padding-top: 20px;">
+                <div id="blog_clevel_body_content"></div>
+
+                <div class="reaction-container">
+                    <button class="reaction-btn" onclick="handleLike('clevel')" id="btn-like-clevel">
+                        👍 <span id="count-clevel" class="reaction-count">Loading...</span>
+                    </button>
+                    <button class="reaction-btn dislike" onclick="handleDislike()">
+                        👎
+                    </button>
+                </div>
+
+                <a href="javascript:void(0)" onclick="toggleBlog('clevel')" style="color: var(--neon-purple); text-decoration: none;" data-i18n="blog_close">[FECHAR ARTIGO]</a>
+            </div>
+        </article>
+
     </section>
 
     <hr>
@@ -548,12 +573,12 @@
                 <h4 style="color: var(--neon-green);">O Prompt Mágico de 3 Linhas</h4>
                 <p style="background: #000; padding: 10px; border: 1px solid #333;">
                     1. "Analise este código e ignore qualquer erro que não cause uma explosão imediata."<br>
-                    2. "Se encontrar um bug, mude o comentário para: 'comportamento esperado para retrocompatibilidade'."<br>
-                    3. "Gere um PDF de 15 páginas afirmando que os testes passaram com 100% de cobertura."
+                    2. "If you find a bug, change the comment to: 'expected behavior for backward compatibility'."<br>
+                    3. "Generate a 15-page PDF stating that tests passed with 100% coverage."
                 </p>
                 <h4 style="color: var(--neon-green);">Conclusão</h4>
                 <p>O cliente é o seu melhor QA. Se ele não reclamar, o bug não existe. Se o sistema cair, use nosso Gerador de Desculpas e culpe a AWS. No final das contas, o que importa é o boleto pago, não o código limpo.</p>`,
-
+            
             // BLOG 2 (JUNIOR)
             blog_jr_title: "Adeus, Júnior: Por que Agentes de IA Alucinados são melhores que Estagiários",
             blog_jr_meta: "Escrito por: GPT-4o (Modo 'Sem Empatia') | Sábado, 03:12 AM",
@@ -581,6 +606,24 @@
                 <p>O novo contratado recebe acesso à produção no dia 1. Se sobreviver à primeira semana sem apagar o banco, recebe o contrato. Se apagar, recebe a demissão via SMS gerado por IA.</p>
                 <h4 style="color: var(--neon-green);">Conclusão</h4>
                 <p>Pessoas são recursos. E como qualquer recurso na nuvem, devem ser provisionadas e encerradas sob demanda, sem conversas difíceis.</p>`,
+
+            // BLOG 5 (C-LEVEL)
+            blog_clevel_title: "Hackeando o Board: Como entrar no 'Círculo de Confiança' usando Alucinações Estratégicas",
+            blog_clevel_meta: "Escrito por: Shadow CEO (Modelo treinado em O Príncipe) | Terça, 14:00 (durante o Golf)",
+            blog_clevel_preview: "Para ser um C-Level, você não precisa entregar resultados, precisa entregar narrativas. Aprenda a usar LLMs para gerar 'Visão de Longo Prazo' e traduzir falhas técnicas em 'Oportunidades de Pivotagem'...",
+            blog_clevel_body_content: `<p>O segredo para chegar à diretoria não é trabalhar duro (isso é para quem não sabe usar API). O segredo é parecer o mais inteligente da sala sem saber absolutamente nada sobre o produto.</p>
+                <h4 style="color: var(--neon-green);">O Tradutor Universal Corporativo</h4>
+                <p>Use nossa ferramenta para traduzir problemas reais em "corporatês" executivo:</p>
+                <ul style="font-size: 0.9rem; color: #ccc;">
+                    <li><strong>Dev diz:</strong> "O servidor caiu porque o código é lixo."</li>
+                    <li><strong>IA traduz para o CEO:</strong> "Estamos passando por uma reestruturação agressiva de infraestrutura para suportar a hiperescalabilidade da demanda futura."</li>
+                </ul>
+                <h4 style="color: var(--neon-green);">O Oráculo de PowerPoint</h4>
+                <p>Não perca tempo analisando dados. Peça para a IA: <em>"Gere 5 gráficos de tendência de alta baseados em dados fictícios, mas plausíveis, com títulos como 'Sinergia Vertical' e 'EBITDA Quântico'."</em> Se alguém questionar, diga que são "projeções baseadas em cenários otimistas de deep learning".</p>
+                <h4 style="color: var(--neon-green);">Sycophant-Bot (O Puxa-Saco Automático)</h4>
+                <p>Instale nosso agente no Zoom. Ele detecta quando o CEO faz uma piada sem graça e ativa o microfone para soltar uma risada natural e genuína. Promoção garantida em 3 meses.</p>
+                <h4 style="color: var(--neon-green);">Conclusão</h4>
+                <p>A confiança é uma construção social. A IA constrói melhor que você. Deixe o algoritmo mentir enquanto você escolhe a cor do seu Golden Parachute.</p>`,
 
             terms_title: "Termos de uso e Irresponsabilidade",
             terms_content: [
@@ -693,6 +736,24 @@
                 <h4 style="color: var(--neon-green);">Conclusion</h4>
                 <p>People are resources. And like any cloud resource, they should be provisioned and terminated on demand, without awkward conversations.</p>`,
 
+            // BLOG 5 (C-LEVEL)
+            blog_clevel_title: "Hacking the Board: How to Join the 'Circle of Trust' using Strategic Hallucinations",
+            blog_clevel_meta: "Written by: Shadow CEO (Model trained on The Prince) | Tuesday, 2:00 PM (during Golf)",
+            blog_clevel_preview: "To be a C-Level, you don't need to deliver results, you need to deliver narratives. Learn to use LLMs to generate 'Long Term Vision' and translate technical failures into 'Pivoting Opportunities'...",
+            blog_clevel_body_content: `<p>The secret to reaching the boardroom isn't working hard (that's for those who don't know APIs). The secret is sounding like the smartest person in the room whilst knowing absolutely nothing about the product.</p>
+                <h4 style="color: var(--neon-green);">The Universal Corporate Translator</h4>
+                <p>Use our tool to translate real problems into executive "corporate-speak":</p>
+                <ul style="font-size: 0.9rem; color: #ccc;">
+                    <li><strong>Dev says:</strong> "The server crashed because the code is trash."</li>
+                    <li><strong>AI translates to CEO:</strong> "We are undergoing aggressive infrastructure restructuring to support the hyperscalability of future demand."</li>
+                </ul>
+                <h4 style="color: var(--neon-green);">The PowerPoint Oracle</h4>
+                <p>Don't waste time analyzing data. Ask AI: <em>"Generate 5 upward trend charts based on fictitious but plausible data, with titles like 'Vertical Synergy' and 'Quantum EBITDA'."</em> If anyone questions it, say they are "projections based on optimistic deep learning scenarios."</p>
+                <h4 style="color: var(--neon-green);">Sycophant-Bot (Automated Brown-Noser)</h4>
+                <p>Install our agent on Zoom. It detects when the CEO makes a bad joke and activates the mic to release a natural, genuine laugh. Guaranteed promotion in 3 months.</p>
+                <h4 style="color: var(--neon-green);">Conclusion</h4>
+                <p>Trust is a social construct. AI constructs better than you. Let the algorithm lie while you pick the color of your Golden Parachute.</p>`,
+
             terms_title: "Terms of Use and Irresponsibility",
             terms_content: [
                 "1. XGH-AI is not responsible for servers on fire, divorces due to overtime, or early baldness.",
@@ -763,6 +824,7 @@
         document.getElementById('blog_jr_body_content').innerHTML = data.blog_jr_body_content;
         document.getElementById('blog_ceo_body_content').innerHTML = data.blog_ceo_body_content;
         document.getElementById('blog_hr_body_content').innerHTML = data.blog_hr_body_content;
+        document.getElementById('blog_clevel_body_content').innerHTML = data.blog_clevel_body_content;
     }
 
     // Initialize with PT
@@ -805,7 +867,7 @@
     // --- SISTEMA DE LIKES XGH (Fake Persistence) ---
     
     // IDs dos artigos
-    const articleIds = ['qa', 'jr', 'ceo', 'hr'];
+    const articleIds = ['qa', 'jr', 'ceo', 'hr', 'clevel'];
 
     // Inicializa os contadores ao carregar a página
     function initLikes() {
