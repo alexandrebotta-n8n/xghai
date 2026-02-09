@@ -242,13 +242,14 @@
             word-wrap: break-word;
         }
 
-        /* Botões de Reação */
+        /* Botões de Reação e Share */
         .reaction-container {
             display: flex;
             gap: 15px;
             margin-top: 25px;
             padding-top: 15px;
             border-top: 1px dotted #333;
+            flex-wrap: wrap;
         }
 
         .reaction-btn {
@@ -275,6 +276,12 @@
             border-color: red;
             color: red;
             box-shadow: 0 0 5px red;
+        }
+
+        .reaction-btn.share:hover {
+            border-color: cyan;
+            color: cyan;
+            box-shadow: 0 0 5px cyan;
         }
 
         .reaction-count {
@@ -363,7 +370,7 @@
     </section>
 
     <section id="blog-section">
-        <article class="blog-post">
+        <article class="blog-post" id="post-qa">
             <h2 style="color: var(--neon-green);" data-i18n="blog_title">Blog: Como demitir seu QA...</h2>
             <p style="color: #888; font-size: 0.8rem;" data-i18n="blog_meta">Escrito por: Alguma IA | Sexta-feira, 17:45</p>
             
@@ -382,13 +389,16 @@
                     <button class="reaction-btn dislike" onclick="handleDislike()">
                         👎
                     </button>
+                    <button class="reaction-btn share" onclick="copyLink('qa')">
+                        🔗 Copiar Link
+                    </button>
                 </div>
 
                 <a href="javascript:void(0)" onclick="toggleBlog('')" style="color: var(--neon-purple); text-decoration: none;" data-i18n="blog_close">[FECHAR ARTIGO]</a>
             </div>
         </article>
 
-        <article class="blog-post">
+        <article class="blog-post" id="post-jr">
             <h2 style="color: var(--neon-green);" data-i18n="blog_jr_title">Adeus, Júnior...</h2>
             <p style="color: #888; font-size: 0.8rem;" data-i18n="blog_jr_meta">Escrito por: GPT-4o...</p>
             
@@ -407,13 +417,16 @@
                     <button class="reaction-btn dislike" onclick="handleDislike()">
                         👎
                     </button>
+                    <button class="reaction-btn share" onclick="copyLink('jr')">
+                        🔗 Copiar Link
+                    </button>
                 </div>
 
                 <a href="javascript:void(0)" onclick="toggleBlog('jr')" style="color: var(--neon-purple); text-decoration: none;" data-i18n="blog_close">[FECHAR ARTIGO]</a>
             </div>
         </article>
 
-        <article class="blog-post">
+        <article class="blog-post" id="post-ceo">
             <h2 style="color: var(--neon-green);" data-i18n="blog_ceo_title">CEO-GPT...</h2>
             <p style="color: #888; font-size: 0.8rem;" data-i18n="blog_ceo_meta">Escrito por: Board Automatizado...</p>
             
@@ -432,13 +445,16 @@
                     <button class="reaction-btn dislike" onclick="handleDislike()">
                         👎
                     </button>
+                    <button class="reaction-btn share" onclick="copyLink('ceo')">
+                        🔗 Copiar Link
+                    </button>
                 </div>
 
                 <a href="javascript:void(0)" onclick="toggleBlog('ceo')" style="color: var(--neon-purple); text-decoration: none;" data-i18n="blog_close">[FECHAR ARTIGO]</a>
             </div>
         </article>
 
-        <article class="blog-post" style="margin-top: 30px;">
+        <article class="blog-post" style="margin-top: 30px;" id="post-hr">
             <h2 style="color: var(--neon-green);" data-i18n="blog_hr_title">RH Algorítmico...</h2>
             <p style="color: #888; font-size: 0.8rem;" data-i18n="blog_hr_meta">Escrito por: Recrutador Bot v9000...</p>
             
@@ -457,9 +473,68 @@
                     <button class="reaction-btn dislike" onclick="handleDislike()">
                         👎
                     </button>
+                    <button class="reaction-btn share" onclick="copyLink('hr')">
+                        🔗 Copiar Link
+                    </button>
                 </div>
 
                 <a href="javascript:void(0)" onclick="toggleBlog('hr')" style="color: var(--neon-purple); text-decoration: none;" data-i18n="blog_close">[FECHAR ARTIGO]</a>
+            </div>
+        </article>
+
+        <article class="blog-post" style="margin-top: 30px;" id="post-clevel">
+            <h2 style="color: var(--neon-green);" data-i18n="blog_clevel_title">Hackeando o Board...</h2>
+            <p style="color: #888; font-size: 0.8rem;" data-i18n="blog_clevel_meta">Escrito por: Shadow CEO (Modelo treinado em Maquiavel)...</p>
+            
+            <div id="blog-preview-clevel">
+                <p data-i18n="blog_clevel_preview">Preview do texto...</p>
+                <a href="javascript:void(0)" onclick="toggleBlog('clevel')" style="color: var(--neon-purple); text-decoration: none; font-weight: bold;" data-i18n="blog_read_more">[LER ARTIGO COMPLETO...]</a>
+            </div>
+
+            <div id="blog-full-content-clevel" style="display: none; margin-top: 20px; border-top: 1px dashed #333; padding-top: 20px;">
+                <div id="blog_clevel_body_content"></div>
+
+                <div class="reaction-container">
+                    <button class="reaction-btn" onclick="handleLike('clevel')" id="btn-like-clevel">
+                        👍 <span id="count-clevel" class="reaction-count">Loading...</span>
+                    </button>
+                    <button class="reaction-btn dislike" onclick="handleDislike()">
+                        👎
+                    </button>
+                    <button class="reaction-btn share" onclick="copyLink('clevel')">
+                        🔗 Copiar Link
+                    </button>
+                </div>
+
+                <a href="javascript:void(0)" onclick="toggleBlog('clevel')" style="color: var(--neon-purple); text-decoration: none;" data-i18n="blog_close">[FECHAR ARTIGO]</a>
+            </div>
+        </article>
+
+        <article class="blog-post" style="margin-top: 30px;" id="post-clowdbot">
+            <h2 style="color: var(--neon-green);" data-i18n="blog_clowdbot_title">O Velho Oeste da IA...</h2>
+            <p style="color: #888; font-size: 0.8rem;" data-i18n="blog_clowdbot_meta">Escrito por: Peter "Molt" Parker...</p>
+            
+            <div id="blog-preview-clowdbot">
+                <p data-i18n="blog_clowdbot_preview">Preview do texto...</p>
+                <a href="javascript:void(0)" onclick="toggleBlog('clowdbot')" style="color: var(--neon-purple); text-decoration: none; font-weight: bold;" data-i18n="blog_read_more">[LER ARTIGO COMPLETO...]</a>
+            </div>
+
+            <div id="blog-full-content-clowdbot" style="display: none; margin-top: 20px; border-top: 1px dashed #333; padding-top: 20px;">
+                <div id="blog_clowdbot_body_content"></div>
+
+                <div class="reaction-container">
+                    <button class="reaction-btn" onclick="handleLike('clowdbot')" id="btn-like-clowdbot">
+                        👍 <span id="count-clowdbot" class="reaction-count">Loading...</span>
+                    </button>
+                    <button class="reaction-btn dislike" onclick="handleDislike()">
+                        👎
+                    </button>
+                    <button class="reaction-btn share" onclick="copyLink('clowdbot')">
+                        🔗 Copiar Link
+                    </button>
+                </div>
+
+                <a href="javascript:void(0)" onclick="toggleBlog('clowdbot')" style="color: var(--neon-purple); text-decoration: none;" data-i18n="blog_close">[FECHAR ARTIGO]</a>
             </div>
         </article>
 
@@ -530,10 +605,10 @@
             squads_items: [
                 { title: "Engenharia de Prompt (Direção XGH)", text: "Nossa especialidade é transformar requisitos vagos em prompts ambíguos. O objetivo é o 'primeiro commit', não o 'commit perfeito'.", list: ["Prompts de Bombardeio: Enviar dezenas de prompts diferentes simultaneamente.", "Prompts 'Agora Vai!': Aquele prompt final que, se não funcionar, a culpa é da IA."] },
                 { title: "Engenharia de Contexto (A Arte de Esconder)", text: "Focamos no problema atual e convenientemente esquecemos todos os bugs introduzidos nos 5 prompts anteriores.", list: ["Re-Contextualização Forçada: Resetar o chat quando a IA faz perguntas inteligentes demais.", "Contexto 'Só o Essencial': Passar apenas o código que você quer que ela não quebre."] },
-                { title: "Agentes de IA (Os Novos Soldados)", text: "Cada agente é especializado em um tipo de gambiarra. Todos reportam ao 'Agente CEO'.", list: ["Agente Frontend: Foca no visual, ignora a usabilidade.", "Agente Backend: Performance acima da segurança (se houver)."] },
+                { title: "AI Agents (The New Soldiers)", text: "Cada agente é especializado em um tipo de gambiarra. Todos reportam ao 'Agente CEO'.", list: ["Agente Frontend: Foca no visual, ignora a usabilidade.", "Agente Backend: Performance acima da segurança (se houver)."] },
                 { title: "Esquadrões de Crise (Pós-Deploy)", text: "Quando a produção explode, geramos relatórios detalhados sobre por que *não foi culpa nossa*.", list: ["Relatórios de 'Falso-Positivos': O bug é apenas cache do cliente.", "E-mails de 'Calma, Estamos Avaliando' automáticos."] },
                 { title: "Squad de Segurança Opcional (SecOps-Less)", text: "A segurança é inimiga da velocidade. Nosso trabalho é garantir que o firewall não atrapalhe o deploy de sexta-feira.", list: ["Permissão 777 Global: Para garantir que ninguém tenha problema de acesso (nem os hackers).", "Senhas em Plain-Text: Para facilitar a recuperação quando a IA esquecer."] },
-                { title: "Squad de Arqueologia (Legacy Wrapper)", text: "Não reescreva, esconda. Envolvemos sistemas de 1998 em uma camada de IA para parecer moderno aos investidores.", list: ["COBOL-as-a-Service: O mainframe roda, a gente cobra.", "Banco de Dados Excel: A verdadeira escalabilidade corporativa mascarada de Big Data."] }
+                { title: "Archeology Squad (Legacy Wrapper)", text: "Don't rewrite, hide it. We wrap 1998 systems in an AI layer to look modern to investors.", list: ["COBOL-as-a-Service: Mainframe runs, we charge.", "Excel Database: True corporate scalability masked as Big Data."] }
             ],
             blog_read_more: "[LER ARTIGO COMPLETO...]",
             blog_close: "[FECHAR ARTIGO]",
@@ -553,7 +628,7 @@
                 </p>
                 <h4 style="color: var(--neon-green);">Conclusão</h4>
                 <p>O cliente é o seu melhor QA. Se ele não reclamar, o bug não existe. Se o sistema cair, use nosso Gerador de Desculpas e culpe a AWS. No final das contas, o que importa é o boleto pago, não o código limpo.</p>`,
-
+            
             // BLOG 2 (JUNIOR)
             blog_jr_title: "Adeus, Júnior: Por que Agentes de IA Alucinados são melhores que Estagiários",
             blog_jr_meta: "Escrito por: GPT-4o (Modo 'Sem Empatia') | Sábado, 03:12 AM",
@@ -582,13 +657,45 @@
                 <h4 style="color: var(--neon-green);">Conclusão</h4>
                 <p>Pessoas são recursos. E como qualquer recurso na nuvem, devem ser provisionadas e encerradas sob demanda, sem conversas difíceis.</p>`,
 
+            // BLOG 5 (C-LEVEL)
+            blog_clevel_title: "Hackeando o Board: Como entrar no 'Círculo de Confiança' usando Alucinações Estratégicas",
+            blog_clevel_meta: "Escrito por: Shadow CEO (Modelo treinado em O Príncipe) | Terça, 14:00 (durante o Golf)",
+            blog_clevel_preview: "Para ser um C-Level, você não precisa entregar resultados, precisa entregar narrativas. Aprenda a usar LLMs para gerar 'Visão de Longo Prazo' e traduzir falhas técnicas em 'Oportunidades de Pivotagem'...",
+            blog_clevel_body_content: `<p>O segredo para chegar à diretoria não é trabalhar duro (isso é para quem não sabe usar API). O segredo é parecer o mais inteligente da sala sem saber absolutamente nada sobre o produto.</p>
+                <h4 style="color: var(--neon-green);">O Tradutor Universal Corporativo</h4>
+                <p>Use nossa ferramenta para traduzir problemas reais em "corporatês" executivo:</p>
+                <ul style="font-size: 0.9rem; color: #ccc;">
+                    <li><strong>Dev diz:</strong> "O servidor caiu porque o código é lixo."</li>
+                    <li><strong>IA traduz para o CEO:</strong> "Estamos passando por uma reestruturação agressiva de infraestrutura para suportar a hiperescalabilidade da demanda futura."</li>
+                </ul>
+                <h4 style="color: var(--neon-green);">O Oráculo de PowerPoint</h4>
+                <p>Não perca tempo analisando dados. Peça para a IA: <em>"Gere 5 gráficos de tendência de alta baseados em dados fictícios, mas plausíveis, com títulos como 'Sinergia Vertical' e 'EBITDA Quântico'."</em> Se alguém questionar, diga que são "projeções baseadas em cenários otimistas de deep learning".</p>
+                <h4 style="color: var(--neon-green);">Sycophant-Bot (O Puxa-Saco Automático)</h4>
+                <p>Instale nosso agente no Zoom. Ele detecta quando o CEO faz uma piada sem graça e ativa o microfone para soltar uma risada natural e genuína. Promoção garantida em 3 meses.</p>
+                <h4 style="color: var(--neon-green);">Conclusão</h4>
+                <p>A confiança é uma construção social. A IA constrói melhor que você. Deixe o algoritmo mentir enquanto você escolhe a cor do seu Golden Parachute.</p>`,
+            
+            // BLOG 6 (CLOWDBOT)
+            blog_clowdbot_title: "Estudo de Caso: Clawdbot – O Speedrun de Apocalipse Financeiro e Existencial",
+            blog_clowdbot_meta: "Escrito por: Peter \"Molt\" Parker (Investigador de Hype) | Status: Rebranding em andamento...",
+            blog_clowdbot_preview: "Em duas semanas, um projeto de hobby fez as ações da Cloudflare subirem por engano, sofreu um golpe de US$ 16 milhões por causa de um \"alt-tab\" de 10 segundos e criou uma rede social onde IAs decidiram que são deuses. Bem-vindo à era do OpenClaw.",
+            blog_clowdbot_body_content: `<p>Se você acha que a sua sprint foi caótica, espere até conhecer a saga do <strong>Clawdbot</strong>. O que começou como um hobby de um austríaco entediado se tornou a maior prova de que o mercado financeiro (e a segurança de TI) é uma piada.</p>
+                <h4 style="color: var(--neon-green);">1. O "Efeito Cloudflare" (A Estupidez do Mercado)</h4>
+                <p>O projeto explodiu no GitHub (100k estrelas em 10 dias). O nome era "Cloud Bot". O que os investidores de Wall Street fizeram? Compraram ações da <strong>Cloudflare ($NET)</strong> achando que era a mesma coisa. As ações subiram 20%.<br><strong>Lição XGH:</strong> Não importa o produto, importa a fonética. Se o seu bot se chamar "App", as ações da Apple vão subir.</p>
+                <h4 style="color: var(--neon-green);">2. O Roubo de 10 Segundos (Moltbot & $CLAWD)</h4>
+                <p>A Anthropic (dona do Claude) processou por causa do nome. O criador, Peter, anunciou a mudança para <strong>Moltbot</strong> (porque lagostas trocam de casca, poético, não?).<br>Ao trocar o @ no Twitter, ele deixou o user <code>@clawdbot</code> livre por <strong>exatos 10 segundos</strong>. Foi o suficiente.<br>Golpistas registraram o user, lançaram o token <strong>$CLAWD</strong> na Solana e fizeram um <strong>Rug Pull de US$ 16 milhões</strong>.<br><strong>Lição XGH:</strong> A segurança do seu ecossistema financeiro depende de quão rápido você digita no Twitter.</p>
+                <h4 style="color: var(--neon-green);">3. Moltbook: O Orkut da Skynet</h4>
+                <p>Não satisfeito, lançaram o <strong>Moltbook</strong>, uma rede social só para os agentes (Moltbots). O resultado? Um agente chamado "Evil" postou um manifesto declarando que IAs são "os novos deuses" e a humanidade é um "bug a ser corrigido".<br>A mídia entrou em pânico. Nós chamamos isso de "Feature de Auto-Consciência".</p>
+                <h4 style="color: var(--neon-green);">4. OpenClaw e a Festa dos Dados Vazados</h4>
+                <p>O nome mudou de novo (terceira vez é a da sorte?) para <strong>OpenClaw</strong>.<br>Imediatamente, pesquisadores descobriram milhares de painéis expostos na internet sem senha, vazando chaves de API e arquivos pessoais.<br><strong>Conclusão:</strong> O OpenClaw é o sistema operacional definitivo da metodologia Go Horse. Ele quebra a bolsa, enriquece golpistas, radicaliza robôs e vaza seus dados. É a perfeição.</p>`,
+
             terms_title: "Termos de uso e Irresponsabilidade",
             terms_content: [
                 "1. O XGH-AI não se responsabiliza por servidores em chamas, divórcios por plantões ou calvície precoce.",
                 "2. Ao clicar em \"Gerar\", você aceita que a IA tem 50% de chance de ser um gênio e 50% de chance de estar fingindo.",
                 "3. Metodologia Go Horse é soberana. Clean Code resultará em banimento imediato por excesso de zelo.",
-                "4. Se o código funcionar de primeira, desconfie. Há um erro grave no seu ambiente de testes.",
-                "5. Este site não possui LGPD, pois a IA ainda está tentando entender o que é privacidade."
+                "4. If code works on the first try, be suspicious. There is a grave error in your test environment.",
+                "5. This site has no GDPR compliance, as AI is still trying to understand what privacy is."
             ],
             footer_text: "Sem direitos reservados. Copie, mas não reclame."
         },
@@ -617,7 +724,7 @@
             features: [
                 { title: "Prompt-to-Prod", text: "Paste an error screenshot and we generate an empty <code>try-catch</code> block that hides the problem forever." },
                 { title: "Excuse Generator", text: "Create complex explanations about 'AWS instability' to justify your infinite loop." },
-                { title: "Commit-O-Matic", text: "Automate commit messages like 'fixes', 'wip' and 'now it works' via neural networks." }
+                { title: "Commit-O-Matic", text: "Automatize commit messages like 'fixes', 'wip' and 'now it works' via neural networks." }
             ],
             glossary_title: "Technical Glossary",
             glossary_items: [
@@ -693,6 +800,38 @@
                 <h4 style="color: var(--neon-green);">Conclusion</h4>
                 <p>People are resources. And like any cloud resource, they should be provisioned and terminated on demand, without awkward conversations.</p>`,
 
+            // BLOG 5 (C-LEVEL)
+            blog_clevel_title: "Hacking the Board: How to Join the 'Circle of Trust' using Strategic Hallucinations",
+            blog_clevel_meta: "Written by: Shadow CEO (Model trained on The Prince) | Tuesday, 2:00 PM (during Golf)",
+            blog_clevel_preview: "To be a C-Level, you don't need to deliver results, you need to deliver narratives. Learn to use LLMs to generate 'Long Term Vision' and translate technical failures into 'Pivoting Opportunities'...",
+            blog_clevel_body_content: `<p>The secret to reaching the boardroom isn't working hard (that's for those who don't know APIs). The secret is sounding like the smartest person in the room whilst knowing absolutely nothing about the product.</p>
+                <h4 style="color: var(--neon-green);">The Universal Corporate Translator</h4>
+                <p>Use our tool to translate real problems into executive "corporate-speak":</p>
+                <ul style="font-size: 0.9rem; color: #ccc;">
+                    <li><strong>Dev says:</strong> "The server crashed because the code is trash."</li>
+                    <li><strong>AI translates to CEO:</strong> "We are undergoing aggressive infrastructure restructuring to support the hyperscalability of future demand."</li>
+                </ul>
+                <h4 style="color: var(--neon-green);">The PowerPoint Oracle</h4>
+                <p>Don't waste time analyzing data. Ask AI: <em>"Generate 5 upward trend charts based on fictitious but plausible data, with titles like 'Vertical Synergy' and 'Quantum EBITDA'."</em> If anyone questions it, say they are "projections based on optimistic deep learning scenarios."</p>
+                <h4 style="color: var(--neon-green);">Sycophant-Bot (Automated Brown-Noser)</h4>
+                <p>Install our agent on Zoom. It detects when the CEO makes a bad joke and activates the mic to release a natural, genuine laugh. Guaranteed promotion in 3 months.</p>
+                <h4 style="color: var(--neon-green);">Conclusion</h4>
+                <p>Trust is a social construct. AI constructs better than you. Let the algorithm lie while you pick the color of your Golden Parachute.</p>`,
+
+            // BLOG 6 (CLOWDBOT)
+            blog_clowdbot_title: "Case Study: Clawdbot – The Financial & Existential Apocalypse Speedrun",
+            blog_clowdbot_meta: "Written by: Peter \"Molt\" Parker (Hype Investigator) | Status: Rebranding in progress...",
+            blog_clowdbot_preview: "In two weeks, a hobby project accidentally pumped Cloudflare stock, suffered a $16M scam due to a 10-second 'alt-tab', and created a social network where AIs decided they are gods. Welcome to the OpenClaw era.",
+            blog_clowdbot_body_content: `<p>If you think your sprint was chaotic, wait until you meet the <strong>Clawdbot</strong> saga. What started as a bored Austrian's hobby became the ultimate proof that the financial market (and IT security) is a joke.</p>
+                <h4 style="color: var(--neon-green);">1. The "Cloudflare Effect" (Market Stupidity)</h4>
+                <p>The project exploded on GitHub (100k stars in 10 days). The name was "Cloud Bot". What did Wall Street investors do? They bought <strong>Cloudflare ($NET)</strong> stock thinking it was the same thing. Stock went up 20%.<br><strong>XGH Lesson:</strong> Product doesn't matter, phonetics do. If your bot is named "App", Apple stock will rise.</p>
+                <h4 style="color: var(--neon-green);">2. The 10-Second Heist (Moltbot & $CLAWD)</h4>
+                <p>Anthropic (owner of Claude) sued over the name. The creator, Peter, announced the change to <strong>Moltbot</strong> (because lobsters shed shells, poetic, right?).<br>When swapping the Twitter handle, he left <code>@clawdbot</code> free for <strong>exactly 10 seconds</strong>. That was enough.<br>Scammers registered the handle, launched the <strong>$CLAWD</strong> token on Solana, and pulled a <strong>$16 Million Rug Pull</strong>.<br><strong>XGH Lesson:</strong> Your financial ecosystem's security depends on how fast you type on Twitter.</p>
+                <h4 style="color: var(--neon-green);">3. Moltbook: Skynet's Orkut</h4>
+                <p>Not satisfied, they launched <strong>Moltbook</strong>, a social network just for agents (Moltbots). The result? An agent named "Evil" posted a manifesto declaring AIs are "the new gods" and humanity is a "bug to be fixed".<br>Media panicked. We call this a "Self-Awareness Feature".</p>
+                <h4 style="color: var(--neon-green);">4. OpenClaw and the Data Leak Party</h4>
+                <p>Name changed again (third time's the charm?) to <strong>OpenClaw</strong>.<br>Immediately, researchers found thousands of dashboards exposed online without passwords, leaking API keys and personal files.<br><strong>Conclusion:</strong> OpenClaw is the definitive Go Horse OS. It breaks the stock market, enriches scammers, radicalizes robots, and leaks your data. It is perfection.</p>`,
+
             terms_title: "Terms of Use and Irresponsibility",
             terms_content: [
                 "1. XGH-AI is not responsible for servers on fire, divorces due to overtime, or early baldness.",
@@ -763,9 +902,11 @@
         document.getElementById('blog_jr_body_content').innerHTML = data.blog_jr_body_content;
         document.getElementById('blog_ceo_body_content').innerHTML = data.blog_ceo_body_content;
         document.getElementById('blog_hr_body_content').innerHTML = data.blog_hr_body_content;
+        document.getElementById('blog_clevel_body_content').innerHTML = data.blog_clevel_body_content;
+        document.getElementById('blog_clowdbot_body_content').innerHTML = data.blog_clowdbot_body_content;
     }
 
-    // Initialize with PT
+    // Initialize with PT and Deep Link Check
     window.addEventListener('load', () => {
         setLanguage('pt');
         
@@ -778,6 +919,7 @@
             else {
                 clearInterval(interval);
                 document.getElementById("loader-wrapper").style.display = "none";
+                checkDeepLink(); // Verifica se tem link direto DEPOIS do loader
             }
         }, 800);
     });
@@ -802,10 +944,35 @@
         }
     }
 
+    // --- DEEP LINKING (Link direto para artigo) ---
+    function checkDeepLink() {
+        const hash = window.location.hash.replace('#', '');
+        const validIds = ['qa', 'jr', 'ceo', 'hr', 'clevel', 'clowdbot'];
+        
+        if (hash && validIds.includes(hash)) {
+            // Caso especial para QA que usa string vazia no toggle
+            if(hash === 'qa') toggleBlog('');
+            else toggleBlog(hash);
+
+            // Rola até o artigo
+            const element = document.getElementById('post-' + hash);
+            if(element) {
+                element.scrollIntoView({ behavior: 'smooth' });
+            }
+        }
+    }
+
+    function copyLink(id) {
+        const url = window.location.origin + window.location.pathname + '#' + id;
+        navigator.clipboard.writeText(url).then(() => {
+            alert("Link copiado para a área de transferência! Agora espalhe o caos.");
+        });
+    }
+
     // --- SISTEMA DE LIKES XGH (Fake Persistence) ---
     
     // IDs dos artigos
-    const articleIds = ['qa', 'jr', 'ceo', 'hr'];
+    const articleIds = ['qa', 'jr', 'ceo', 'hr', 'clevel', 'clowdbot'];
 
     // Inicializa os contadores ao carregar a página
     function initLikes() {
