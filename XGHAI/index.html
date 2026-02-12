@@ -20,7 +20,8 @@
       window.si = window.si || function () { (window.siq = window.siq || []).push(arguments); };
     </script>
     <script defer src="/_vercel/speed-insights/script.js"></script>
-	
+
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
@@ -329,6 +330,34 @@
         }
         #loader-text { color: var(--neon-green); text-transform: uppercase; font-size: 1.2rem; }
         @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+
+		/* Botão Social XGH */
+		.social-btn {
+		    display: inline-flex;
+		    align-items: center;
+		    gap: 10px;
+		    background: transparent;
+		    color: #fff;
+		    border: 1px solid #333;
+		    padding: 10px 20px;
+		    text-decoration: none;
+		    font-family: 'JetBrains Mono', monospace;
+		    font-size: 0.9rem;
+		    transition: all 0.3s ease;
+		    border-radius: 5px; /* Leve arredondamento */
+		}
+		
+		.social-btn:hover {
+		    border-color: #fff;
+		    background: #fff;
+		    color: #000;
+		    box-shadow: 0 0 15px #fff; /* Brilho branco do X */
+		    transform: translateY(-2px);
+		}
+		
+		.social-btn i {
+		    font-size: 1.2rem;
+		}
     </style>
 
 	<script>
@@ -570,6 +599,12 @@
 </div>
 
 <footer>
+    <div style="margin-bottom: 20px;">
+        <a href="https://x.com/XGH_AI" target="_blank" class="social-btn">
+            <i class="fa-brands fa-x-twitter"></i> Siga o Caos @XGH_AI
+        </a>
+    </div>
+
     <p>&copy; 2026 XGHAI.COM.BR - <span data-i18n="footer_text">Sem direitos reservados. Copie, mas não reclame.</span></p>
 </footer>
 
@@ -1049,5 +1084,6 @@
 
 </body>
 </html>
+
 
 
